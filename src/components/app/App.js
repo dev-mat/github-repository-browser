@@ -1,9 +1,11 @@
+import Router from "../../router/Router";
+import MainContainer from "../mainContainer/MainContainer";
 
 function App() {
   return (
-    <div>
-      Hallo World!
-    </div>
+    <MainContainer>
+      <Router/>
+    </MainContainer>
   );
 }
 
