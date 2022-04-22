@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack, Grid } from "@mui/material";
 import { CustomButton } from "./CustomButton";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,33 +11,49 @@ const style = {
     marginTop: 5,
     marginBottom: 5,
     boxSizing: "border-box",
+    flexWrap: "wrap",
   },
   button: {
-    width: "30%",
+    width: 220,
+    minWidth: 200,
+    marginLeft: 1,
+    marginTop: 2,
+    marginRight: 1,
     display: "flex",
   },
 };
 
-const Navigation = () => {
+const Navigation = ({ children }) => {
   const navigate = useNavigate();
 
   return (
-    <Stack flexDirection="row" justifyContent="space-evenly" sx={style.stack}>
-      <CustomButton
-        onClick={() => navigate("/repo-list")}
-        startIcon={<FormatListBulletedIcon />}
-        sx={style.button}
-      >
-        Repo List
-      </CustomButton>
-      <CustomButton
-        onClick={() => navigate("/repo-search")}
-        startIcon={<SearchIcon />}
-        sx={style.button}
-      >
-        Repo Search
-      </CustomButton>
-    </Stack>
+    <Grid container justifyContent="center">
+      <Grid item xs={12} sm={11} md={11} lg={10} xl={9}>
+        <Stack
+          flexDirection="row"
+          justifyContent="space-around"
+          sx={style.stack}
+        >
+          <CustomButton
+            onClick={() => navigate("/repo-list")}
+            startIcon={<FormatListBulletedIcon />}
+            sx={style.button}
+          >
+            Repo List
+          </CustomButton>
+          <CustomButton
+            onClick={() => navigate("/repo-search")}
+            startIcon={<SearchIcon />}
+            sx={style.button}
+          >
+            Repo Search
+          </CustomButton>
+        </Stack>
+      </Grid>
+      <Grid item xs={12} sm={11} md={11} lg={10} xl={9}>
+        {children}
+      </Grid>
+    </Grid>
   );
 };
 

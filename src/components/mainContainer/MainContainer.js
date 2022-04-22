@@ -27,8 +27,7 @@ const MainContainer = ({ children }) => {
           xl={9}
           sx={{ backgroundColor: "white", height: "100%" }}
         >
-          <Navigation />
-          {children}
+          <Navigation>{children}</Navigation>
         </Grid>
       </Grid>
     </Container>

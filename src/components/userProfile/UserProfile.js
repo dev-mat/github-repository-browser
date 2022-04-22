@@ -1,6 +1,3 @@
-import { GET_USER_DETAILS } from "../../api/queries";
-import { login } from "../../api/userData";
-import { useQuery } from "@apollo/client/react";
 import { Box } from "@mui/system";
 import {
   Avatar,
@@ -15,6 +12,7 @@ import { palette } from "../../theme/colors";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import LoadingComponent from "../share/LoadingComponent";
 import ErrorComponent from "../share/ErrorComponent";
+import { useUserProfile } from "./useUserProfile";
 
 const style = {
   avatarGroupStyle: {
@@ -45,13 +43,7 @@ const style = {
 };
 
 const UserProfile = () => {
-  const { loading, error, data } = useQuery(GET_USER_DETAILS, {
-    variables: {
-      login: login,
-    },
-    onCompleted: (data) => console.log(data),
-    onError: (error) => console.error(error),
-  });
+  const { loading, data, error } = useUserProfile();
 
   if (loading) return <LoadingComponent height={500} />;
   if (error) return <ErrorComponent height={500} />;
@@ -75,7 +67,7 @@ const UserProfile = () => {
         display="flex"
       >
         <Box>
-          <Link href={user.url} underline="hover">
+          <Link href={user.url} target="_blank" underline="hover">
             <Typography
               align="center"
               fontSize={50}
