@@ -1,5 +1,18 @@
 # Github repository browser
 
+## Check out live demo, go to Environments tab!
+
+## To use this app you need to set Github Personal Access Token as environment variable (REACT_APP_TOKEN)
+
+Example:
+
+REACT_APP_TOKEN=GithubPersonalAccessToken
+
+## To use all app functionalities, Personal Access Token should have at least scope:
+
+- Access public repositories
+- Read org and team membership, read org projects
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
