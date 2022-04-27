@@ -50,7 +50,7 @@ const Navigation = ({ children }) => {
           </CustomButton>
         </Stack>
       </Grid>
-      <Grid item xs={12} sm={11} md={11} lg={10} xl={9}>
+      <Grid item xs={12} sm={11} md={11} lg={10} xl={9} minHeight={500}>
         {children}
       </Grid>
     </Grid>
